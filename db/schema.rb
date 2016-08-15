@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815161428) do
+ActiveRecord::Schema.define(version: 20160815162135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,31 @@ ActiveRecord::Schema.define(version: 20160815161428) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pools", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "depth"
+    t.string   "color"
+    t.boolean  "pool_house"
+    t.boolean  "pool_toys"
+    t.integer  "animal_option_id"
+    t.string   "pool_type"
+    t.string   "address"
+    t.string   "water_type"
+    t.integer  "capacity"
+    t.text     "description"
+    t.boolean  "alcohol"
+    t.boolean  "soft"
+    t.boolean  "bbq"
+    t.integer  "pool_girl"
+    t.integer  "pool_boy"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["animal_option_id"], name: "index_pools_on_animal_option_id", using: :btree
+    t.index ["user_id"], name: "index_pools_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,4 +57,6 @@ ActiveRecord::Schema.define(version: 20160815161428) do
     t.datetime "updated_at",   null: false
   end
 
+  add_foreign_key "pools", "animal_options"
+  add_foreign_key "pools", "users"
 end
