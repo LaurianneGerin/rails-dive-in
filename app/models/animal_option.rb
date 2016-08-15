@@ -1,0 +1,2 @@
+class AnimalOption < ApplicationRecord
+end
