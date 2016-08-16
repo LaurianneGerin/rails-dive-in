@@ -1,0 +1,3 @@
+<% @pool.photos.each do |photo| %>
+ <%= cl_image_tag photo.path, width: 771, height: 320, crop: :fill %>
+<% end %>

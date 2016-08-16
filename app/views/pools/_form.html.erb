@@ -1,0 +1,36 @@
+
+<h1 class="text-center">Add your Beautiful Pool</h1>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <%= simple_form_for(@pool) do |f| %>
+            <%= f.error_notification %>
+              <% if @pool.errors.any? %>
+                <%= @pool.errors.full_messages.join(" ") %>
+               <% end %>
+            <%= f.input :width %>
+            <%= f.input :height %>
+            <%= f.input :depth %>
+            <%= f.input :color %>
+            <%= f.input :pool_house %>
+            <%= f.input :pool_toys %>
+            <%= f.input :pool_type %>
+            <%= f.input :water_type %>
+            <%= f.input :capacity %>
+            <%= f.input :description %>
+            <%= f.input :alcohol %>
+            <%= f.input :soft %>
+            <%= f.input :bbq %>
+            <%= f.input :pool_girl %>
+            <%= f.input :pool_boy %>
+            <%= f.button :submit, class: "btn-block btn-primary" %>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
