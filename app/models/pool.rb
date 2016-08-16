@@ -1,5 +1,6 @@
 class Pool < ApplicationRecord
   belongs_to :user
+  has_attachments :photos, maximum: 4
 
   validates :width, presence: true
   validates :height, presence: true
