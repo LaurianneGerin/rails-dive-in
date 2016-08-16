@@ -10,6 +10,7 @@
               <% if @pool.errors.any? %>
                 <%= @pool.errors.full_messages.join(" ") %>
                <% end %>
+            <%= f.input :photos, as: :attachinary %>
             <%= f.input :width %>
             <%= f.input :height %>
             <%= f.input :depth %>
