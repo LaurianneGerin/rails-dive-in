@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
 
-  before_action :find_reservation, only: [:show,:destroy]
+  before_action :find_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
     @reservations = Reservation.all
@@ -21,6 +21,13 @@ class ReservationsController < ApplicationController
       redirect_to #TODO = user#show
     else
       render :new
+  end
+
+  def edit
+  end
+
+  def update
+    @reservation.update(reservation_params)
   end
 
   def destroy
