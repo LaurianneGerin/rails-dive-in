@@ -9,6 +9,5 @@ class User < ApplicationRecord
 
   # TODO validates :first_name, presence: true
   # TODO validates :last_name, presence: true
-  # validates :email, uniqueness: true #add a regex
-  # validates :password, uniqueness: true, presence: true
+
 end
