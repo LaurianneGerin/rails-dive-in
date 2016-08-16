@@ -1,7 +1,7 @@
 <h1> Reservation's index </h1>
 
-<% user.reservation.each do |reservation| %>
-  <% @user.picture %> <% @user.description %>
+<% current_user.reservations.each do |reservation| %>
+  <% reservation.pool.photo %> <% reservation.pool.description %>
   from <% reservation.date_begin %> to <%reservation.end_date%>
   <%= link_to 'Accept', reservation_path %>
   <%= link_to 'Deny', reservation_path %>

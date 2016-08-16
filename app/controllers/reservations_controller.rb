@@ -1,28 +1,30 @@
 class ReservationsController < ApplicationController
 
-  before_action :find_reservation, only: [:show, :edit, :update]
+  before_action :find_reservation, only: [:show,:destroy]
 
   def index
     @reservations = Reservation.all
   end
 
   def show
+    #TODO = doit etre integrer au niveau du User#show
   end
 
   def new
     @reservation = Reservation.new
+    #TODO = doit etre integrer dans pool#show, puis supprimer ici.
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
-    @reservation.save
+    reservation = Reservation.new(reservation_params)
+    if reservation.save
+      redirect_to #TODO = user#show
+    else
+      render :new
   end
 
-  def edit
-  end
-
-  def update
-    @reservation.update(reservation_params)
+  def destroy
+    @reservation.destroy
   end
 
   private
