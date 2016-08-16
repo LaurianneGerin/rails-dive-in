@@ -18,7 +18,3 @@ class Pool < ApplicationRecord
   validates :pool_girl, presence: true
   validates :pool_boy, presence: true
 end
-
-
-
-
