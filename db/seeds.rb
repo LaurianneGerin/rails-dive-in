@@ -22,7 +22,9 @@ puts "User seed begin"
                    password:Faker::Internet.password(8),
                    description:Faker::Lorem.paragraph)
   users.save
+  print '*'
 end
+puts ""
 puts "User seed end"
 
 
@@ -30,7 +32,9 @@ puts "animal seed begin"
 10.times do
   animals = Animal.new(name:["crocodile", "dolphin", "snake", "fish", "dog"].sample)
   animals.save
+  print '*'
 end
+puts ""
 puts "animal seed end"
 
 
@@ -53,20 +57,24 @@ puts "Pool seed begin"
                    pool_girl:rand(2..10),
                    pool_boy:rand(2..10),
                    address:Faker::Address.street_address)
+  print '*'
   pools.save
 end
+puts ""
 puts "Pool seed end"
 
-
+puts "PoolAnimal seed begin"
 10.times do
   pool_animals = PoolAnimal.new(animal_id:Animal.all.sample.id,
                                 quantity:rand(1..5),
                                 pool_id:Pool.all.sample.id)
   pool_animals.save
+  print '*'
 end
+puts ""
+puts "PoolAnimal seed begin"
 
-
-
+puts "Reservations seed Begin"
 15.times do
   reservations = Reservation.new(pool_id:Pool.all.sample.id,
                                  user_id:User.all.sample.id,
@@ -74,11 +82,18 @@ end
                                  end_date:Faker::Date.forward(23),
                                  statut:Faker::Code.asin)
   reservations.save
+  print '*'
 end
+puts ""
+puts "Reserevations seed end"
 
+puts "Availability seed begin"
 15.times do
   availabilites = Availability.new(pool_id:Pool.all.sample.id,
                                   begin_date:Faker::Date.between(5.days.ago, Date.today),
                                   end_date:Faker::Date.forward(60))
   availabilites.save
+  print '*'
 end
+puts ""
+puts "Availability seed end"
