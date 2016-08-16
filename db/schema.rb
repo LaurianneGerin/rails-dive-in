@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160816082517) do
+ActiveRecord::Schema.define(version: 20160816091126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20160816082517) do
   end
 
   create_table "availabilities", force: :cascade do |t|
+    t.integer  "pool_id"
     t.date     "begin_date"
     t.date     "end_date"
-    t.integer  "pool_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pool_id"], name: "index_availabilities_on_pool_id", using: :btree
@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 20160816082517) do
     t.boolean  "pool_house"
     t.boolean  "pool_toys"
     t.string   "pool_type"
-    t.string   "address"
     t.string   "water_type"
     t.integer  "capacity"
     t.text     "description"
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160816082517) do
     t.boolean  "bbq"
     t.integer  "pool_girl"
     t.integer  "pool_boy"
+    t.string   "address"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["user_id"], name: "index_pools_on_user_id", using: :btree

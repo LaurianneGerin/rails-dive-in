@@ -8,9 +8,7 @@ class CreatePools < ActiveRecord::Migration[5.0]
       t.string :color
       t.boolean :pool_house
       t.boolean :pool_toys
-      t.references :animal_option, foreign_key: true
       t.string :pool_type
-      t.string :address
       t.string :water_type
       t.integer :capacity
       t.text :description
@@ -19,6 +17,7 @@ class CreatePools < ActiveRecord::Migration[5.0]
       t.boolean :bbq
       t.integer :pool_girl
       t.integer :pool_boy
+      t.string :address
 
       t.timestamps
     end
