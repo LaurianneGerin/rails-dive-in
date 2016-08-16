@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
+
+
+gem 'attachinary', github: 'assembler/attachinary'
+gem "jquery-fileupload-rails"
+gem "coffee-rails"
+
+gem 'cloudinary', '1.1.0'
 gem 'faker'
 gem 'rails', '5.0.0.1'
 gem 'puma'
