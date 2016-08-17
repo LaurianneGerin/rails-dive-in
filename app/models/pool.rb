@@ -15,4 +15,8 @@ class Pool < ApplicationRecord
 
   validates :pool_girl, presence: true
   validates :pool_boy, presence: true
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 end

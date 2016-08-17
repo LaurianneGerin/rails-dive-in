@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
 
+  skip_before_action :authenticate_user!, only: [:new]
   before_action :find_reservation, only: [:show, :edit, :update, :destroy]
 
   def index
