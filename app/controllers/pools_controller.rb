@@ -4,7 +4,12 @@ class PoolsController < ApplicationController
   before_action :find_pool, only: [:show, :edit, :update]
 
   def index
-    @pools = Pool.all
+  #  @pools = Pool.all
+  @pools = Pool.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@pools) do |pool, marker|
+      marker.lat pool.latitude
+      marker.lng pool.longitude
+    end
   end
 
   def show
