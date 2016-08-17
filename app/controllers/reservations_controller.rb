@@ -22,17 +22,20 @@ class ReservationsController < ApplicationController
       redirect_to #TODO = user#show
     else
       render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @reservation.update(reservation_params)
+    reservation.update(reservation_params)
+    redirect_to root_path
   end
 
   def destroy
     @reservation.destroy
+    redirect_to reservations_path
   end
 
   private

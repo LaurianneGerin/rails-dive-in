@@ -1,8 +1,24 @@
-<h1> Reservation's index </h1>
+<div class="container">
+  <h1>Pools to be rented</h1>
 
-<% current_user.reservations.each do |reservation| %>
-  <% reservation.pool.photo #TODO = ajouter .first? %> <% reservation.pool.description %>
-  from <% reservation.date_begin %> to <%reservation.end_date%>
-  <%= link_to 'Accept', reservation_path %>
-  <%= link_to 'Deny', reservation_path %>
-<% end %>
+  <% current_user.reservations.each do |reservation| %>
+  <br>
+    <%= reservation.pool.photos if reservation.pool.photos? %>
+    <br>
+    <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+    <br>
+    <%= reservation.pool.description %>
+    <br>
+    from <%= reservation.begin_date %> to <%= reservation.end_date %>
+    <br>
+
+    <%= link_to 'Accept', reservation_path(reservation[:id]),
+        method: :patch,
+        data: { confirm: "Are you very nice ?"} , class: "btn btn-success" %>
+    <%= link_to "Delete", reservation_path(reservation[:id]),
+        method: :delete,
+        data: { confirm: "Are you sure?" } , class: "btn btn-danger" %>
+  <br>
+  <% end %>
+
+</div>
