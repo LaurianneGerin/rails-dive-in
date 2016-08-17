@@ -16,6 +16,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis'
 gem 'devise'
 
+gem 'geocoder'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
