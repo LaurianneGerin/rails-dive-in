@@ -22,6 +22,7 @@ class ReservationsController < ApplicationController
       redirect_to #TODO = user#show
     else
       render :new
+    end
   end
 
   def edit
@@ -33,6 +34,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
+    redirect_to reservations_path
   end
 
   private

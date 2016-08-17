@@ -1,1 +1,10 @@
-<h1> Show a reservation </h1>
+<h1> My reservations </h1>
+
+<% @reservations.each do |reservation| %>
+  <% reservation.pool.photo%> <% reservation.pool.description %>
+    from <% reservation.date_begin %> to <%reservation.end_date%>
+  <%= link_to "Cancel", reservation_path(reservation),
+      method: :destroy,
+      data: { confirm: "Are you sure?" } %>
+
+<% end %>
