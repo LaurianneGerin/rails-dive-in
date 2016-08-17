@@ -1,3 +1,22 @@
 <% @pool.photos.each do |photo| %>
  <%= cl_image_tag photo.path, width: 771, height: 320, crop: :fill %>
 <% end %>
+
+<p>
+  Latitude :
+  <%= @pool_coordinates[:lat] %>
+</p>
+
+<p>
+  Longitude :
+  <%= @pool_coordinates[:lng] %>
+</p>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @flat_coordinates %>;
+      alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>

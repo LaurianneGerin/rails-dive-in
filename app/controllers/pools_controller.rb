@@ -8,6 +8,8 @@ class PoolsController < ApplicationController
   end
 
   def show
+    @pool = Pool.find(params[:id])
+    @pool_coordinates = {lat:@pool.latitude, lng:@pool.longitude}
   end
 
   def new
