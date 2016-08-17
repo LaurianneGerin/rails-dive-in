@@ -81,8 +81,7 @@ puts "Pool seed begin"
                                        "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427189/b2aylwfzbwbmuyzgwyeo.jpg",
                                        "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427184/pkpxphw3slwowtpfgbk4.jpg",
                                        "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427177/sojlfnsniimkplr0jzjp.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471426462/tyeimakj0dxht336y3br.jpg"].sample
-                    ].sample)
+                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471426462/tyeimakj0dxht336y3br.jpg"].sample)
   print '*'
   pools.save
 end
