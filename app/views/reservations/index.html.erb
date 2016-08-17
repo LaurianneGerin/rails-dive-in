@@ -1,20 +1,24 @@
-<h1>Pools to rent</h1>
+<div class="container">
+  <h1>Pools to be rented</h1>
 
-<% @reservations.each do |reservation| %>
-<br>
-  <%= reservation.pool.photos %>
+  <% current_user.reservations.each do |reservation| %>
   <br>
-  <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+    <%= reservation.pool.photos if reservation.pool.photos? %>
+    <br>
+    <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+    <br>
+    <%= reservation.pool.description %>
+    <br>
+    from <%= reservation.begin_date %> to <%= reservation.end_date %>
+    <br>
+
+    <%= link_to 'Accept', reservation_path(reservation[:id]),
+        method: :patch,
+        data: { confirm: "Are you very nice ?"} , class: "btn btn-success" %>
+    <%= link_to "Delete", reservation_path(reservation[:id]),
+        method: :delete,
+        data: { confirm: "Are you sure?" } , class: "btn btn-danger" %>
   <br>
-  <%= reservation.pool.description %>
-  <br>
-  from <%= reservation.begin_date %> to <%= reservation.end_date %>
-  <br>
-  <%= link_to 'Accept', reservation_path(reservation),
-      method: :update,
-      data: { confirm: "Are you very nice ?" } %>
-  <%= link_to "Delete", reservation_path(reservation),
-      method: :destroy,
-      data: { confirm: "Are you sure?" } %>
-<br>
-<% end %>
+  <% end %>
+
+</div>
