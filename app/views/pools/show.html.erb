@@ -13,10 +13,10 @@
 </p>
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var coord = <%= raw @flat_coordinates %>;
-      alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
-    });
-  <% end %>
+  <script type="text/javascript">
+      $(document).ready(function() {
+        var coord = <%= raw @pool_coordinates.to_json %>;
+        alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
+      });
+  </script>
 <% end %>
