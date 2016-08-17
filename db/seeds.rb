@@ -70,18 +70,18 @@ puts "Pool seed begin"
                             "37 Rue Esprit des Lois 33000 Bordeaux",
                             "79 Rue du Loup 33000 Bordeaux",
                             "168 Cours de l'Argonne 33000 Bordeaux",
-                            "Miroir d'eau Place de la Bourse, 33000 Bordeaux"].sample,
-                   remote_photos_url: ["http://res.cloudinary.com/lauriannegerin/image/upload/v1471427227/mvx8jwzws1iouomcwijz.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427221/v9sbizzimw2jkap3v5hl.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427216/nef1n983cprcp7s96l02.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427211/l4oypl3ltkzqv7eswhvq.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427207/hqnfdqtv9bsmp8ybbxe6.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427199/lmntg8byft1a4d2l07ns.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427194/qiymwneyxiuiaqzy9hvv.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427189/b2aylwfzbwbmuyzgwyeo.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427184/pkpxphw3slwowtpfgbk4.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427177/sojlfnsniimkplr0jzjp.jpg",
-                                       "http://res.cloudinary.com/lauriannegerin/image/upload/v1471426462/tyeimakj0dxht336y3br.jpg"].sample)
+                            "Miroir d'eau Place de la Bourse, 33000 Bordeaux"].sample)
+                   # photos:["http://res.cloudinary.com/lauriannegerin/image/upload/v1471427227/mvx8jwzws1iouomcwijz.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427221/v9sbizzimw2jkap3v5hl.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427216/nef1n983cprcp7s96l02.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427211/l4oypl3ltkzqv7eswhvq.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427207/hqnfdqtv9bsmp8ybbxe6.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427199/lmntg8byft1a4d2l07ns.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427194/qiymwneyxiuiaqzy9hvv.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427189/b2aylwfzbwbmuyzgwyeo.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427184/pkpxphw3slwowtpfgbk4.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471427177/sojlfnsniimkplr0jzjp.jpg",
+                   #         "http://res.cloudinary.com/lauriannegerin/image/upload/v1471426462/tyeimakj0dxht336y3br.jpg"].sample)
   print '*'
   pools.save
 end
