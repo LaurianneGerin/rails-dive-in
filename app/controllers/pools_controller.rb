@@ -1,6 +1,6 @@
 class PoolsController < ApplicationController
 
-  #skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :index
   before_action :find_pool, only: [:show, :edit, :update]
 
   def index
