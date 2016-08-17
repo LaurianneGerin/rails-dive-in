@@ -1,10 +1,14 @@
-<h1 class="text-center"> Take a break !</h1>
-<hr>
-<% @pools.each do |pool| %>
-  <h3>height: <%= pool.height %> meters</h3>
-  <h3>width: <%= pool.width %> meters</h3>
-  <h3>capacity: <%= pool.capacity %> people</h3>
-  <p><%= pool.description %></p>
-<hr>
-<% end %>
 
+  <div class="container">
+    <div class="row">
+      <% @pools.each do |pool| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: url('https://static.pexels.com/photos/32870/pexels-photo.jpg');">
+            <div class="card-description">
+              <h2><%= link_to "Amazing Pool", pool_path(@pools) %></h2>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
