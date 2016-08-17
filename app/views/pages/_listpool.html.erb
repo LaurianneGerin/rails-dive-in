@@ -1,0 +1,10 @@
+<h1> The Pools !</h1>
+<hr>
+<% pools.each do |pool| %>
+  <h3>height: <%= pool.height %> meters</h3>
+  <h3>width: <%= pool.width %> meters</h3>
+  <h3>capacity: <%= pool.capacity %> people</h3>
+  <p><%= pool.description %></p>
+<hr>
+<% end %>
+
