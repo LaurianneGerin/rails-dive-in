@@ -2,15 +2,10 @@
   <%# Add a if for town without pools%>
   <h1> Pools available for <%#= @search[:city] %> </h1>
   <hr>
-  <%# if @pools.size > 2 %>
+
     <% @pools.each do |pool| %>
       <%= render "display_pool", pool: pool %>
     <% end %>
-  <%# else %>
-    <%# pool = @pools %>
-    <%#= render "display_pool", pool: pool %>
-  <%# end %>
-
 
   <div id="map" style="width: 100%; height: 600px;"></div>
 
