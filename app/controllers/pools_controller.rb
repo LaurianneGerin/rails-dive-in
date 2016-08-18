@@ -5,9 +5,15 @@ class PoolsController < ApplicationController
   before_action :find_pool, only: [:show, :edit, :update]
 
   def index
-  @search = params[:search]
-  #  @pools = Pool.all
-  @pools = Pool.where.not(latitude: nil, longitude: nil)
+
+  if params[:search].nil?
+    @pools = Pool.where.not(latitude: nil, longitude: nil)
+  else
+     @search = params[:search]
+     @pools = Pool.near(@search[:city],10)
+     @pools = @pools.select { |p| p.capacity >= @search[:capacity].to_f}
+   end
+
     @hash = Gmaps4rails.build_markers(@pools) do |pool, marker|
       marker.lat pool.latitude
       marker.lng pool.longitude
@@ -48,7 +54,9 @@ class PoolsController < ApplicationController
 
 
   def pools_params
-    params.require(:pools).permit(
+    params.require(:pool).permit(
+      :name,
+      :address,
       :width,
       :height,
       :height,

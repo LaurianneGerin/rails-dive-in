@@ -10,8 +10,10 @@
                 <%= @pool.errors.full_messages.join(" ") %>
                <% end %>
             <%= f.input :photos, as: :attachinary %>
-            <%= f.input :width %>
-            <%= f.input :height %>
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :width%>
+            <%= f.input :height, label: 'Length'%>
             <%= f.input :depth %>
             <%= f.input :color %>
             <%= f.input :pool_house %>

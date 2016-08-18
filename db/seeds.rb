@@ -41,6 +41,7 @@ puts "animal seed end"
 puts "Pool seed begin"
 10.times do
   pools = Pool.new(user_id:User.all.sample.id,
+                   name: Faker::GameOfThrones.city,
                    width:rand(2..10),
                    height:rand(10..50),
                    depth:rand(3..10),

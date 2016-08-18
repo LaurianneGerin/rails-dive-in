@@ -1,13 +1,16 @@
 <div class="container">
-  <h1> Pools available for <%= @search[:city] %> </h1>
+  <%# Add a if for town without pools%>
+  <h1> Pools available for <%#= @search[:city] %> </h1>
   <hr>
-  <% @pools.each do |pool| %>
-    <h3>height: <%= pool.height %> meters</h3>
-    <h3>width: <%= pool.width %> meters</h3>
-    <h3>capacity: <%= pool.capacity %> people</h3>
-    <p><%= pool.description %></p>
-  <hr>
-  <% end %>
+  <%# if @pools.size > 2 %>
+    <% @pools.each do |pool| %>
+      <%= render "display_pool", pool: pool %>
+    <% end %>
+  <%# else %>
+    <%# pool = @pools %>
+    <%#= render "display_pool", pool: pool %>
+  <%# end %>
+
 
   <div id="map" style="width: 100%; height: 600px;"></div>
 

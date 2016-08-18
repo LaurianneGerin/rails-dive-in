@@ -12,13 +12,10 @@
   <%= @pool_coordinates[:lng] %>
 </p>
 
-
+<%= link_to "Confirm my book", reservations_path, class: "btn btn-warning btn-xl" %>
 
 <% content_for(:after_js) do %>
   <script type="text/javascript">
-      $(document).ready(function() {
-        var coord = <%= raw @pool_coordinates.to_json %>;
-        alert('Flat coordinates are ' + coord.lat + ', ' + coord.lng);
-      });
+
   </script>
 <% end %>
