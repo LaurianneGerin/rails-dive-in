@@ -5,10 +5,9 @@ class PoolsController < ApplicationController
   before_action :find_pool, only: [:show, :edit, :update]
 
   def index
-    session[:city] = params[:city]
-    session[:capacity] = params[:capacity]
-    session[:begin_date] = params[:begin_date]
-    session[:end_date] = params[:end_date]
+    session[:city] = params[:search][:city]
+    session[:begin_date] = params[:search][:start]
+    session[:end_date] = params[:search][:end]
 
     if params[:search].nil?
       @pools = Pool.where.not(latitude: nil, longitude: nil)
