@@ -6,9 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <%= link_to "Pool.all", pools_path, class:"btn btn-danger btn-xs"%>
-    <%= link_to "Pool.new", new_pool_path, class:"btn btn-danger btn-xs"%>
-    <%= link_to "Reservation.new", new_reservation_path, class:"btn btn-danger btn-xs"%>
+    <%= link_to "Add your pool", new_pool_path, class:"btn btn-default btn-xl"%>
     <!-- Search form in case search it on le wagon-->
 
     <!-- Different navigation if login or not -->
@@ -31,8 +29,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to root_path do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+              <%= link_to reservations_path do %>
+                <i class="fa fa-tint"></i> <%= t(".profile", default: "My pools") %>
               <% end %>
             </li>
             <li>

@@ -1,5 +1,6 @@
 class Pool < ApplicationRecord
   belongs_to :user
+  has_many :reservations
   has_attachments :photos, maximum: 4
 
   validates :width, presence: true
@@ -19,4 +20,13 @@ class Pool < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  def available?(begin_date_pick, end_date_pick)
+    current_reservations = Reservation.where(pool: self).where("end_date <= ?", end_date_pick)
+    #Lancer la méthode overlap sur chacune qui s'arrête si true une fois
+    #
+    current_reservations.each do |reservation|
+      return false if reservation.overlap?(begin_date_pick, end_date_pick)
+    end
+    return true
+  end
 end
