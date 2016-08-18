@@ -29,8 +29,9 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    reservation.update(reservation_params)
+    @reservation.update(reservation_params)
     redirect_to root_path
+    # TODO afficher le message de confirmation de reservation.
   end
 
   def destroy
