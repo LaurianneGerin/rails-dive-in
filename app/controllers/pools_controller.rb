@@ -11,7 +11,8 @@ class PoolsController < ApplicationController
   else
      @search = params[:search]
      @pools = Pool.near(@search[:city],10)
-     @pools = @pools.select { |p| p.capacity >= @search[:capacity].to_f}
+                  .select { |p| p.capacity >= @search[:capacity].to_f}
+                  .select { |p| p.available?(@search[:start], @search[:end]) }
    end
 
     @hash = Gmaps4rails.build_markers(@pools) do |pool, marker|
