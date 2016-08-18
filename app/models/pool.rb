@@ -21,19 +21,18 @@ class Pool < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   def available?(begin_date_pick, end_date_pick)
-    #transform date
+
+    current_reservations = []
     bdp = begin_date_pick.split('/')
     begin_date_pick = (bdp[1] + '/' + bdp[0] + '/' + bdp[2]).to_date
 
     edp = end_date_pick.split('/')
     end_date_pick = (edp[1] + '/' + edp[0] + '/' + edp[2]).to_date
 
-    current_reservations = Reservation.where(pool: self).where("end_date <= ?", end_date_pick)
-
+    current_reservations = self.reservations
     current_reservations.each do |reservation|
       return false if reservation.overlap?(begin_date_pick, end_date_pick)
-    raise
     end
-    return true
+
   end
 end
