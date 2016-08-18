@@ -4,7 +4,19 @@
   <hr>
   <%# if @pools.size > 2 %>
     <% @pools.each do |pool| %>
-      <%= render "display_pool", pool: pool %>
+      <% raise %>
+      <h2> <%= link_to pool.name, pool_path(pool) %> </h2>
+      <h3>Length: <%= pool.height %> meters</h3>
+      <h3>Width: <%= pool.width %> meters</h3>
+      <h3>Capacity: <%= pool.capacity %> people</h3>
+      <p>
+        <% pool.reservations.each do |reservation| %>
+          <p>
+            <%= reservation.begin_date %>, <%= reservation.end_date %>
+          </p>
+        <% end %>
+      </p>
+      <p><%= pool.description %></p>
     <% end %>
   <%# else %>
     <%# pool = @pools %>

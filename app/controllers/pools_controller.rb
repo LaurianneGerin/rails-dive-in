@@ -6,20 +6,20 @@ class PoolsController < ApplicationController
 
   def index
 
-  if params[:search].nil?
-    @pools = Pool.where.not(latitude: nil, longitude: nil)
-  else
-     @search = params[:search]
-     @pools = Pool.near(@search[:city],10)
-                  .select { |p| p.capacity >= @search[:capacity].to_f}
-                  .select { |p| p.available?(@search[:start], @search[:end]) }
-   end
+    if params[:search].nil?
+      @pools = Pool.where.not(latitude: nil, longitude: nil)
+    else
+       @search = params[:search]
+       @pools = Pool.near(@search[:city],10)
+                    .select { |p| p.capacity >= @search[:capacity].to_f}
+                    .select { |p| p.available?(@search[:start], @search[:end]) }
+     end
 
-    @hash = Gmaps4rails.build_markers(@pools) do |pool, marker|
-      marker.lat pool.latitude
-      marker.lng pool.longitude
+      @hash = Gmaps4rails.build_markers(@pools) do |pool, marker|
+        marker.lat pool.latitude
+        marker.lng pool.longitude
+      end
     end
-  end
 
   def show
     @pool = Pool.find(params[:id])
