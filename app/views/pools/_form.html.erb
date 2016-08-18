@@ -18,15 +18,15 @@
             <%= f.input :color %>
             <%= f.input :pool_house %>
             <%= f.input :pool_toys %>
-            <%= f.input :pool_type %>
-            <%= f.input :water_type %>
-            <%= f.input :capacity %>
+            <%= f.input :pool_type, collection: [ "Olympic", "Buried", "Half-buried","Inflatable"] %>
+            <%= f.input :water_type, collection: [ "Salted", "Chlorure"] %>
+            <%= f.input :capacity  %>
             <%= f.input :description %>
             <%= f.input :alcohol %>
             <%= f.input :soft %>
             <%= f.input :bbq %>
-            <%= f.input :pool_girl %>
-            <%= f.input :pool_boy %>
+            <%= f.input :pool_girl, collection: ["1", "2","3","4","5","6","7","8","9","10"] %>
+            <%= f.input :pool_boy, collection: ["1", "2","3","4","5","6","7","8","9","10"] %>
             <%= f.button :submit, class: "btn-block btn-primary" %>
         <% end %>
     </div>
