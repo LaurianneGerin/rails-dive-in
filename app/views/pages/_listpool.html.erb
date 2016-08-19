@@ -4,7 +4,7 @@
     <% @pools.each do |pool| %>
       <div class="col-xs-12 col-sm-4">
         <%= link_to pool_path(pool) do %>
-          <div class="card" style="background-image: url('https://static.pexels.com/photos/32870/pexels-photo.jpg');">
+          <div class="card" style="background-image: url(<%=helper_picture_url(pool) %>);">
             <div class="card-category">
               <h3>
                 <%= pool.name %>

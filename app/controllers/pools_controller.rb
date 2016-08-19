@@ -86,7 +86,7 @@ class PoolsController < ApplicationController
       :pool_girl,
       :pool_boy,
       :address,
-      photos: []
+      :photo
       )
   end
 end

@@ -10,7 +10,7 @@
         <div class="card-owner">
           <p>
             <br>
-            <%= cl_image_path reservation.pool.photos if reservation.pool.photos? %>
+            <%= cl_image_path reservation.pool.photo if reservation.pool.photo? %>
             <br>
             TO <%= reservation.user.first_name %> <%= reservation.user.last_name %>
             <br>
@@ -53,7 +53,7 @@
   <% current_user.reservations.each do |reservation| %>
     <div class="card-owner">
         <p>
-          <%= reservation.pool.photos if reservation.pool.photos? %>
+          <%= reservation.pool.photo if reservation.pool.photo? %>
           <br>
           <%= reservation.pool.name %>
           <br>
