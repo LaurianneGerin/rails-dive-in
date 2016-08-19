@@ -9,7 +9,7 @@
               <% if @pool.errors.any? %>
                 <%= @pool.errors.full_messages.join(" ") %>
                <% end %>
-            <%= f.input :photos, as: :attachinary %>
+            <%= f.input :photo, as: :attachinary %>
             <%= f.input :name %>
             <%= f.input :address %>
             <%= f.input :width%>

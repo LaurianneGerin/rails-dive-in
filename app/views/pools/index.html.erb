@@ -8,7 +8,7 @@
           <div class="col-xs-12 col-sm-6">
             <% @pools.each do |pool| %>
               <%= link_to pool_path(pool) do %>
-                <div class="card-index" style="background-image: url('http://cdn.lifebuzz.com/images/4929/lifebuzz-ab9f9187e6873ad0bc1ca8dce729c26a-limit_2000.jpg');">
+                <div class="card-index" style="background-image: url(<%= helper_picture_url(@pool)%>);">
                 <div class="card-category">
                   <h3> <%= pool.name %> </h3>
                 </div>
@@ -35,21 +35,6 @@
       </div>
     </div>
   </div>
-
-    <% @pools.each do |pool| %>
-      <h2> <%= link_to pool.name, pool_path(pool) %> </h2>
-      <h3>Length: <%= pool.height %> meters</h3>
-      <h3>Width: <%= pool.width %> meters</h3>
-      <h3>Capacity: <%= pool.capacity %> people</h3>
-      <p>
-        <% pool.reservations.each do |reservation| %>
-          <p>
-            <%= reservation.begin_date %>, <%= reservation.end_date %>
-          </p>
-        <% end %>
-      </p>
-      <p><%= pool.description %></p>
-    <% end %>
 
 
   <% content_for(:after_js) do %>
