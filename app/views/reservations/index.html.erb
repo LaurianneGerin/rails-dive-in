@@ -1,29 +1,39 @@
-<div class="container" id="owner_pools">
-  <h2 class = "text-center bg-primary">Pools to be rented</h2>
+<% if current_user.pools.any? %>
+  <div class="container" id="owner_pools">
+    <h2 class = "text-center bg-primary">Pools to be rented</h2>
+    <% if current_user.has_any_reservation? %>
 
-  <p class = "text-primary" ><% current_user.list_own_pool_reservations.each do |reservation| %>
-  <br>
-    <%= reservation.pool.photos if reservation.pool.photos? %>
-    <br>
-    <%= reservation.user.first_name %> <%= reservation.user.last_name %>
-    <br>
-    <%= reservation.pool.description %>
-    <br>
-    from <strong><%= reservation.begin_date %></strong> to <strong><%= reservation.end_date %></strong>
-    <br>
-    </p>
+      <% current_user.list_own_pool_reservations.each do |reservation| %>
+        <p class = "text-primary" >
+        <br>
+        <%= cl_image_path reservation.pool.photos if reservation.pool.photos? %>
+        <br>
+        TO <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+        <br>
+        <%= reservation.user.description %>
+        <br>
+        FROM <strong><%= reservation.begin_date %></strong> TO <strong><%= reservation.end_date %></strong>
+        <br>
+        </p>
 
-    <%= simple_form_for(reservation) do |f|%>
-      <%= link_to "Deny", reservation_path(reservation[:id]),
-        method: :delete,
-        data: { confirm: "Are you sure?" } , class: "btn btn-danger pull-right" %>
-      <%= f.input :statut, as: :hidden, input_html: { value: 'Validated'}%>
-      <%= f.submit 'Accept', class: 'btn btn-success pull-right'%>
-    <%end%>
 
-  <br>
-  <% end %>
-</div>
+        <%= link_to "Deny", reservation_path(reservation[:id]),
+          method: :delete,
+          data: { confirm: "Are you sure?" } , class: "btn btn-danger pull-right" %>
+        <%= simple_form_for(reservation) do |f|%>
+          <%= f.input :statut, as: :hidden, input_html: { value: 'Validated'}%>
+          <%= f.submit 'Accept', class: 'btn btn-success pull-right'%>
+        <%end%>
+      <%end%>
+
+
+    <%else%>
+      <p> You have no reservations on your pool</p>
+    <% end %>
+  </div>
+<% end %>
+
+
 
 <div class="container" id="tenent_pools">
 
