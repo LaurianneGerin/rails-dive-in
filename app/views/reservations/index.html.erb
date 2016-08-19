@@ -8,7 +8,7 @@
 
       <% current_user.list_own_pool_reservations.each do |reservation| %>
         <div class="card-owner">
-          <p class = "text-primary" >
+          <p>
             <br>
             <%= cl_image_path reservation.pool.photos if reservation.pool.photos? %>
             <br>
@@ -26,13 +26,16 @@
             </strong>
             <br>
           </p>
-          <%= link_to "Deny", reservation_path(reservation[:id]),
-            method: :delete,
-            data: { confirm: "Are you sure?" } , class: "btn btn-danger pull-right" %>
+          <div class="button">
+            <%= link_to "Deny", reservation_path(reservation[:id]),
+              method: :delete,
+              data: { confirm: "Are you sure?" } , class: "btn btn-danger pull-right" %>
+          </div>
           <%= simple_form_for(reservation) do |f|%>
             <%= f.input :statut, as: :hidden, input_html: { value: 'Validated'}%>
             <%= f.submit 'Accept', class: 'btn btn-success pull-right'%>
           <% end %>
+
         </div>
       <% end %>
     <%else%>
@@ -49,14 +52,16 @@
 
   <% current_user.reservations.each do |reservation| %>
     <div class="card-owner">
-        <p class = "text-primary">
+        <p>
           <%= reservation.pool.photos if reservation.pool.photos? %>
           <br>
           <%= reservation.pool.description %>
           from <strong><%= reservation.begin_date %></strong> to <strong><%=reservation.end_date %></strong>
-          <%= link_to "Cancel", reservation_path(reservation[:id]),
-              method: :delete,
-              data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
+          <div class="button">
+            <%= link_to "Cancel", reservation_path(reservation[:id]),
+                method: :delete,
+                data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
+          </div>
         </p>
     </div>
   <% end %>
