@@ -35,7 +35,7 @@ class PoolsController < ApplicationController
   def create
     @pool = Pool.create(pools_params)
     if @pool.save
-      redirect_to # TODO = missing the User/show/routes
+      redirect_to pool_path(@pool)
     else
       render :new
     end
