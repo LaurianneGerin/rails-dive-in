@@ -6,6 +6,7 @@ class PoolsController < ApplicationController
 
   def index
     session[:city] = params[:search][:city]
+    session[:capacity] = params[:search][:capacity]
     session[:begin_date] = params[:search][:start]
     session[:end_date] = params[:search][:end]
 
@@ -26,6 +27,11 @@ class PoolsController < ApplicationController
   def show
     @pool = Pool.find(params[:id])
     @pool_coordinates = {lat:@pool.latitude, lng:@pool.longitude}
+
+    @hash = Gmaps4rails.build_markers(@pool) do |pool, marker|
+        marker.lat pool.latitude
+        marker.lng pool.longitude
+    end
   end
 
   def new
@@ -54,6 +60,7 @@ class PoolsController < ApplicationController
   def find_pool
     @pool = Pool.find(params[:id])
   end
+
 
 
   def pools_params

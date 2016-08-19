@@ -17,7 +17,11 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    reservation = Reservation.new(reservation_params)
+    reservation = Reservation.new
+    reservation.begin_date = Date.strptime(session[:begin_date], "%m/%d/%Y")
+    reservation.end_date = Date.strptime(session[:end_date], "%m/%d/%Y")
+    reservation.user = current_user
+    reservation.pool = Pool.find(params[:pool_id])
     if reservation.save
       redirect_to #TODO = user#show
     else
