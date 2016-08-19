@@ -38,13 +38,19 @@
 
 .wrapper-title {
   padding: 50px;
+
+}
+
+.wrapper-title h1 {
+  color: #FE4A49;
+
 }
 
 .card, .card-index {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
-  color: white;
+  color: #FED766;
   position: relative;
   margin-bottom: 30px;
   border-radius: 5px;
@@ -58,7 +64,7 @@
 
 
 .card-wrapper {
-  background: #F4F4F4;
+  background: #E6E6EA;
   padding-top: 50px;
   padding-bottom: 50px;
   margin: auto;

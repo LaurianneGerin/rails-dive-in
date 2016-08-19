@@ -5,6 +5,7 @@ class ReservationsController < ApplicationController
 
   def index
     @reservations = Reservation.all
+    @pool = Pool.find(@reservations.last.pool_id)
   end
 
   def show
