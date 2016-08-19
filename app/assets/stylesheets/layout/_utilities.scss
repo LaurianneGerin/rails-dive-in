@@ -23,3 +23,14 @@
 .bg-dark-blue {
   background: #3b5998;
 }
+
+
+//  sticky footer
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.site-content {
+  flex:1;
+}
