@@ -55,8 +55,11 @@
         <p>
           <%= reservation.pool.photos if reservation.pool.photos? %>
           <br>
+          <%= reservation.pool.name %>
+          <br>
           <%= reservation.pool.description %>
-          from <strong><%= reservation.begin_date %></strong> to <strong><%=reservation.end_date %></strong>
+          <br>
+          FROM <strong><%= reservation.begin_date %></strong> TO <strong><%=reservation.end_date %></strong>
           <div class="button">
             <%= link_to "Cancel", reservation_path(reservation[:id]),
                 method: :delete,
