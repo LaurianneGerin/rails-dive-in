@@ -1,73 +1,74 @@
+<div class="min-height-for-footer">
+  <% if current_user.pools.any? %>
+    <div class="container" id="owner_pools">
+      <h2 class = "text-center header ">
+        Pools to be rented
+      </h2>
+      <% if current_user.has_any_reservation? %>
 
-<% if current_user.pools.any? %>
-  <div class="container" id="owner_pools">
-    <h2 class = "text-center header ">
-      Pools to be rented
-    </h2>
-    <% if current_user.has_any_reservation? %>
-
-      <% current_user.list_own_pool_reservations.each do |reservation| %>
-        <div class="card-owner">
-          <p>
-            <br>
-            <%= cl_image_path reservation.pool.photo if reservation.pool.photo? %>
-            <br>
-            TO <%= reservation.user.first_name %> <%= reservation.user.last_name %>
-            <br>
-            <%= reservation.user.description %>
-            <br>
-            FROM
-            <strong>
-              <%= reservation.begin_date %>
-            </strong>
-              TO
-            <strong>
-              <%= reservation.end_date %>
-            </strong>
-            <br>
-          </p>
-          <div class="button">
-            <%= link_to "Deny", reservation_path(reservation[:id]),
-              method: :delete,
-              data: { confirm: "Are you sure?" } , class: "btn btn-danger pull-right" %>
-          </div>
-          <%= simple_form_for(reservation) do |f|%>
-            <%= f.input :statut, as: :hidden, input_html: { value: 'Validated'}%>
-            <%= f.submit 'Accept', class: 'btn btn-success pull-right'%>
-          <% end %>
-
-        </div>
-      <% end %>
-    <%else%>
-      <p> You have no reservations on your pool</p>
-    <% end %>
-  </div>
-<% end %>
-
-
-
-<div class="container" id="tenent_pools">
-
-  <h2 class = "text-center header"> My reservations </h2>
-
-  <% current_user.reservations.each do |reservation| %>
-    <div class="card-owner">
-        <p>
-          <%= reservation.pool.photo if reservation.pool.photo? %>
-          <br>
-          <%= reservation.pool.name %>
-          <br>
-          <%= reservation.pool.description %>
-          <br>
-          FROM <strong><%= reservation.begin_date %></strong> TO <strong><%=reservation.end_date %></strong>
-          <div class="button">
-            <%= link_to "Cancel", reservation_path(reservation[:id]),
+        <% current_user.list_own_pool_reservations.each do |reservation| %>
+          <div class="card-owner">
+            <p>
+              <br>
+              <%= cl_image_path reservation.pool.photo if reservation.pool.photo? %>
+              <br>
+              TO <%= reservation.user.first_name %> <%= reservation.user.last_name %>
+              <br>
+              <%= reservation.user.description %>
+              <br>
+              FROM
+              <strong>
+                <%= reservation.begin_date %>
+              </strong>
+                TO
+              <strong>
+                <%= reservation.end_date %>
+              </strong>
+              <br>
+            </p>
+            <div class="button">
+              <%= link_to "Deny", reservation_path(reservation[:id]),
                 method: :delete,
-                data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
+                data: { confirm: "Are you sure?" } , class: "btn btn-danger pull-right" %>
+            </div>
+            <%= simple_form_for(reservation) do |f|%>
+              <%= f.input :statut, as: :hidden, input_html: { value: 'Validated'}%>
+              <%= f.submit 'Accept', class: 'btn btn-success pull-right'%>
+            <% end %>
+
           </div>
-        </p>
+        <% end %>
+      <%else%>
+        <p> You have no reservations on your pool</p>
+      <% end %>
     </div>
   <% end %>
 
 
+
+  <div class="container" id="tenent_pools">
+
+    <h2 class = "text-center header"> My reservations </h2>
+
+    <% current_user.reservations.each do |reservation| %>
+      <div class="card-owner">
+          <p>
+            <%= reservation.pool.photo if reservation.pool.photo? %>
+            <br>
+            <%= reservation.pool.name %>
+            <br>
+            <%= reservation.pool.description %>
+            <br>
+            FROM <strong><%= reservation.begin_date %></strong> TO <strong><%=reservation.end_date %></strong>
+            <div class="button">
+              <%= link_to "Cancel", reservation_path(reservation[:id]),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }, class: "btn btn-danger pull-right" %>
+            </div>
+          </p>
+      </div>
+    <% end %>
+
+
+  </div>
 </div>

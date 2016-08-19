@@ -1,31 +1,24 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-        <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= helper_picture_url(@pool)%>);">
-        </div>
-    </div>
-  </div>
+
+<div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= helper_picture_url(@pool)%>);">
 </div>
 
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col-md-12">
-      <h3 class="text-center"> <%= @pool.name %> </h3>
-      <br>
-      <h4> Capacity: <%= session[:capacity] %> </h4>
-      <br>
-      <h4> Check in: <%= session[:begin_date] %> </h4>
-      <br>
-      <h4> Check out: <%= session[:end_date] %> </h4>
-      <br>
-      <h4> City: <%= session[:city] %> </h4>
+      <h3> <%= @pool.name %> </h3>
+      <h4>
+        You have chosen to take a dip in <strong><%= session[:city] %></strong>
+        from the <strong> <%= session[:begin_date] %></strong>
+        to the <strong> <%= session[:end_date] %></strong>
+        with <strong><%= session[:capacity] %></strong> people
+      </h4>
    </div>
   </div>
 </div>
 
 <hr>
-<h3 class="text-center">Owner information</h3>
-<div class="container">
+<h3 class="text-center">Owner's information</h3>
+<div class="container text-center">
   <div class="row">
     <div class="col-md-12">
       <h4>
@@ -38,8 +31,7 @@
         <%= current_user.last_name %>
       </h4>
     </div>
-    <div class="ol-md-12">
-     <p class="text-center"> <%= current_user.description %></p>
+     <p> <%= current_user.description %></p>
     </div>
   </div>
 </div>
@@ -50,17 +42,11 @@
     <div class="row">
       <div class="col-md-12">
         <h3 class="text-center">About this pool</h3>
-        <hr>
         <p class="text-center">Length: <%= @pool.height %></p>
-        <hr>
         <p class="text-center">Width: <%= @pool.width %></p>
-        <hr>
         <p class="text-center">Depth: <%= @pool.depth %></p>
-        <hr>
         <p class="text-center">Water type: <%= @pool.water_type %></p>
-        <hr>
         <p class="text-center">Pool type: <%= @pool.pool_type %></p>
-        <hr>
      </div>
     </div>
   </div>
@@ -71,7 +57,9 @@
   <%= link_to "Confirm my book", reservations_path(pool_id: @pool.id), class: "btn btn-danger btn-lg text-center ", method: "post"  %>
 </div>
 
-<div class="map-show" id="map"></div>
+<div class="container">
+  <div class="map-show" id="map"></div>
+</div>
 
  <% content_for(:after_js) do %>
     <script>
