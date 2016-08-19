@@ -40,6 +40,7 @@ class PoolsController < ApplicationController
 
   def create
     @pool = Pool.create(pools_params)
+    @pool.user_id = current_user.id
     if @pool.save
       redirect_to pool_path(@pool)
     else
