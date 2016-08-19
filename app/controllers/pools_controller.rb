@@ -45,7 +45,6 @@ class PoolsController < ApplicationController
       flash[:notice] = "Your pool has been successfully added !"
       redirect_to root_path
     else
-      flash[:notice] = "Your pool has not been successfully added..."
       render :new
     end
   end
