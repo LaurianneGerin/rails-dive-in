@@ -42,8 +42,10 @@ class PoolsController < ApplicationController
     @pool = Pool.create(pools_params)
     @pool.user_id = current_user.id
     if @pool.save
-      redirect_to pool_path(@pool)
+      flash[:notice] = "Your pool has been successfully added !"
+      redirect_to root_path
     else
+      flash[:notice] = "Your pool has not been successfully added..."
       render :new
     end
   end
