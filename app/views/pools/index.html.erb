@@ -7,22 +7,24 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6">
             <% @pools.each do |pool| %>
-              <div class="card-index" style="background-image: url('http://cdn.lifebuzz.com/images/4929/lifebuzz-ab9f9187e6873ad0bc1ca8dce729c26a-limit_2000.jpg');">
-              <div class="card-category">
-                <h3> <%= link_to pool.name, pool_path(pool) %> </h3>
-              </div>
-              <div class="card-user">
-                <p>Size : <%= pool.height %> x <%= pool.width %> </p>
-                <p><%=  pool.depth%> meters</p>
-              </div>
-              <div class="card-avatar">
-                <i class="fa fa-users" aria-hidden="true"></i>
-                <p> <%= pool.capacity %> </p>
-              </div>
-              <div class="card-description">
-                <p><%= pool.description %></p>
-              </div>
-              </div>
+              <%= link_to pool_path(pool) do %>
+                <div class="card-index" style="background-image: url('http://cdn.lifebuzz.com/images/4929/lifebuzz-ab9f9187e6873ad0bc1ca8dce729c26a-limit_2000.jpg');">
+                <div class="card-category">
+                  <h3> <%= pool.name %> </h3>
+                </div>
+                <div class="card-user">
+                  <p>Size : <%= pool.height %> x <%= pool.width %> </p>
+                  <p><%=  pool.depth%> meters</p>
+                </div>
+                <div class="card-avatar">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  <p> <%= pool.capacity %> </p>
+                </div>
+                <div class="card-description">
+                  <p><%= pool.description %></p>
+                </div>
+                </div>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -34,6 +36,20 @@
     </div>
   </div>
 
+    <% @pools.each do |pool| %>
+      <h2> <%= link_to pool.name, pool_path(pool) %> </h2>
+      <h3>Length: <%= pool.height %> meters</h3>
+      <h3>Width: <%= pool.width %> meters</h3>
+      <h3>Capacity: <%= pool.capacity %> people</h3>
+      <p>
+        <% pool.reservations.each do |reservation| %>
+          <p>
+            <%= reservation.begin_date %>, <%= reservation.end_date %>
+          </p>
+        <% end %>
+      </p>
+      <p><%= pool.description %></p>
+    <% end %>
 
 
   <% content_for(:after_js) do %>
@@ -51,6 +67,7 @@
           }
         });
       });
+
     </script>
   <% end %>
 </div>
