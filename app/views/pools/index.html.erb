@@ -1,6 +1,6 @@
 <div class="container">
   <%# Add a if for town without pools%>
-  <h1> Pools available </h1>
+  <h1 class="text-center title-index"> Pools available in <%= session[:city] %> </h1>
   <div class="row">
     <div class="col-xs-12 col-sm-6">
       <div class="container">
@@ -8,7 +8,7 @@
           <div class="col-xs-12 col-sm-6">
             <% @pools.each do |pool| %>
               <%= link_to pool_path(pool) do %>
-                <div class="card-index" style="background-image: url(<%= helper_picture_url(@pool)%>);">
+                <div class="card-index" style="background-image: url(<%= helper_picture_url(pool)%>);">
                 <div class="card-category">
                   <h3> <%= pool.name %> </h3>
                 </div>

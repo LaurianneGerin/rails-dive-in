@@ -16,7 +16,7 @@
 .banner-show{
   color: white;
   text-align: center;
-  height: 200px;
+  height: 400px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -38,13 +38,19 @@
 
 .wrapper-title {
   padding: 50px;
+
+}
+
+.wrapper-title h1 {
+  color: #FE4A49;
+
 }
 
 .card, .card-index {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
-  color: white;
+  color: #FED766;
   position: relative;
   margin-bottom: 30px;
   border-radius: 5px;
@@ -58,7 +64,7 @@
 
 
 .card-wrapper {
-  background: #F4F4F4;
+  background: #E6E6EA;
   padding-top: 50px;
   padding-bottom: 50px;
   margin: auto;
