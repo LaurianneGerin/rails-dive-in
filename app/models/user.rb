@@ -19,4 +19,8 @@ class User < ApplicationRecord
     end
     pool_reservations.flatten
   end
+
+  def has_any_reservation?
+    list_own_pool_reservations.any?
+  end
 end
