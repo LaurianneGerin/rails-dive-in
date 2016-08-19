@@ -1,18 +1,23 @@
-<% @pool.photos.each do |photo| %>
- <%= cl_image_tag photo.path, width: 771, height: 320, crop: :fill %>
-<% end %>
+<div class="container">
+  <% @pool.photos.each do |photo| %>
+   <%= cl_image_tag photo.path, width: 771, height: 320, crop: :fill %>
+  <% end %>
+  <p>
+    Ville :
+    <%= session[:city] %>
+  </p>
+  <p> <%= session[:capacity] %> </p>
+  <p> <%= session[:begin_date] %> </p>
+  <p> <%= session[:end_date] %> </p>
 
-<p>
-  Latitude :
-  <%= @pool_coordinates[:lat] %>
-</p>
+  <p>
+    Latitude : <%= @pool_coordinates[:lat] %>
+    Longitude : <%= @pool_coordinates[:lng] %>
+  </p>
 
-<p>
-  Longitude :
-  <%= @pool_coordinates[:lng] %>
-</p>
 
-<%= link_to "Confirm my book", reservations_path, class: "btn btn-warning btn-xl" %>
+  <%= link_to "Confirm my book", reservations_path, class: "btn btn-warning btn-xl text-center btn-block" %>
+</div>
 
 <% content_for(:after_js) do %>
   <script type="text/javascript">

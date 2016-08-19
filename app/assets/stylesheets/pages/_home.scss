@@ -28,7 +28,7 @@
   padding: 50px;
 }
 
-.card {
+.card, .card-index {
   height: 175px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
@@ -37,19 +37,26 @@
   margin-bottom: 30px;
   border-radius: 5px;
 }
+
+.card-index {
+  height: 250px;
+
+}
+
+
 .card-wrapper {
   background: #F4F4F4;
   padding: 100px;
 }
 .card-user {
   position: absolute;
-  right: 10px;
-  top: 10px;
+  left: 5px;
+  top: 50px;
 }
 .card-category {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 5px;
+  left: 5px;
   font-size: 10px;
   text-transform: uppercase;
 }
@@ -73,8 +80,14 @@
   background: black;
   opacity: 0;
 }
-.card:hover{
+.card:hover, .card-index:hover{
   opacity: 0.8;
   transition: all 300ms ease-in-out;
   transform: scale(1.05);
+}
+
+.card-avatar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
